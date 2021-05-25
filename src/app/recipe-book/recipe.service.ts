@@ -3,7 +3,7 @@ import { Ingredient } from '../shared/ingredient.model';
 import { Recipe } from './recipe.model';
 
 export class RecipeService {
-  recipes: Recipe[] = [
+  private recipes: Recipe[] = [
     new Recipe(
       'Spaghetti',
       'Tomato spaghetti with eggs',
@@ -28,7 +28,11 @@ export class RecipeService {
 
   selectedRecipe = new EventEmitter<Recipe>();
 
-  getRecipeCopy() {
+  getRecipesCopy() {
     return this.recipes.slice();
+  }
+
+  getRecipeById(id: number) {
+    return this.recipes[id];
   }
 }
